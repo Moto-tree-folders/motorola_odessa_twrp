@@ -23,7 +23,7 @@
 # *not* include it on all devices, so it is safe even with hardware-specific
 # components.
 
-LOCAL_PATH := device/motorola/liber
+LOCAL_PATH := device/motorola/odessa
 
 # Architecture
 TARGET_ARCH := arm64
@@ -62,15 +62,22 @@ BOARD_KERNEL_SECOND_OFFSET := 0x00f00000
 BOARD_RAMDISK_OFFSET       := 0x01000000
 BOARD_DTB_OFFSET           := 0x01f00000
 
-TARGET_KERNEL_ARCH := arm64
 TARGET_KERNEL_HEADER_ARCH := arm64
-BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
-TARGET_KERNEL_SOURCE := kernel/motorola/sm6150
-TARGET_KERNEL_CONFIG := vendor/liber_defconfig
-BOARD_KERNEL_SEPARATED_DTBO := true
 TARGET_KERNEL_VERSION := 4.14
+
+BUILD_WITH_KERNEL_SOURCE := true
+
+ifeq ($(BUILD_WITH_KERNEL_SOURCE), true)
+TARGET_KERNEL_SOURCE := kernel/motorola/sm6150
+TARGET_KERNEL_CONFIG := twrp_odessa_defconfig
 TARGET_KERNEL_CLANG_COMPILE := true
+BOARD_KERNEL_SEPARATED_DTBO := true
 TARGET_KERNEL_CLANG_VERSION := r328903
+else
+TARGET_PREBUILT_KERNEL := device/motorola/odessa/prebuilt/Image.gz-dtb
+BOARD_PREBUILT_DTBOIMAGE := $(DEVICE_PATH)/prebuilt/dtbo.img
+BOARD_INCLUDE_RECOVERY_DTBO := true
+endif
 
 BOARD_INCLUDE_DTB_IN_BOOTIMG := true
 

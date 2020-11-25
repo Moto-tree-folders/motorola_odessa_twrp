@@ -1,5 +1,5 @@
 
-LOCAL_PATH := device/motorola/liber
+LOCAL_PATH := device/motorola/odessa
 
 # define hardware platform
 PRODUCT_PLATFORM := sm6150

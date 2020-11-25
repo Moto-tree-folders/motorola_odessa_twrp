@@ -31,25 +31,39 @@ wait_for_poweron()
 }
 
 # Load all needed modules
-insmod $module_path/sensors_class.ko
-insmod $module_path/fpc1020_mmi.ko
-insmod $module_path/goodix_fod_mmi.ko
-insmod $module_path/utags.ko
+# Load all needed modules
+insmod $module_path/bq2597x_mmi.ko
+insmod $module_path/ets_fps_mmi.ko
 insmod $module_path/exfat.ko
+# insmod $module_path/focaltech_0flash_mmi.ko
+insmod $module_path/fpc1020_mmi.ko
 insmod $module_path/mmi_annotate.ko
 insmod $module_path/mmi_info.ko
+insmod $module_path/mmi_parallel_charger.ko
 insmod $module_path/mmi_sys_temp.ko
 insmod $module_path/moto_f_usbnet.ko
+insmod $module_path/mpq-adapter.ko
+insmod $module_path/mpq-dmx-hw-plugin.ko
+insmod $module_path/nova_0flash_mmi.ko
+insmod $module_path/qca_cld3_wlan.ko
+insmod $module_path/qpnp_adaptive_charge.ko
+insmod $module_path/qpnp-power-on-mmi.ko
+insmod $module_path/rdbg.ko
+insmod $module_path/sensors_class.ko
 insmod $module_path/snd_smartpa_aw882xx.ko
-insmod $module_path/focaltech_0flash_mmi.ko
+insmod $module_path/tzlog_dump.ko
+insmod $module_path/utags.ko
+insmod $module_path/watchdog_cpu_ctx.ko
+insmod $module_path/watchdogtest.ko
+insmod $module_path/abov_sar_mmi_overlay.ko
 
 cd $firmware_path
 touch_product_string=$(ls $touch_class_path)
-insmod $module_path/aw8646.ko
-firmware_file="focaltech-ft8756-0d-0000-liber.bin"
+insmod $module_path/focaltech_0flash_mmi.ko
+firmware_file="focaltech-txd-ft8756-06-0000-odessa.bin"
 
 
-touch_path=/sys$(cat $touch_class_path/$touch_product_string/path | awk -Fliber '{print $1}')
+touch_path=/sys$(cat $touch_class_path/$touch_product_string/path | awk -Fodessa '{print $1}')
 wait_for_poweron
 echo $firmware_file > $touch_path/doreflash
 echo 1 > $touch_path/forcereflash
