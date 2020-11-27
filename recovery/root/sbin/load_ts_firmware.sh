@@ -32,10 +32,10 @@ wait_for_poweron()
 
 # Load all needed modules
 # Load all needed modules
-insmod $module_path/bq2597x_mmi.ko
+#insmod $module_path/bq2597x_mmi.ko
 insmod $module_path/ets_fps_mmi.ko
 insmod $module_path/exfat.ko
-# insmod $module_path/focaltech_0flash_mmi.ko
+insmod $module_path/focaltech_0flash_mmi.ko
 insmod $module_path/fpc1020_mmi.ko
 insmod $module_path/mmi_annotate.ko
 insmod $module_path/mmi_info.ko
@@ -59,7 +59,7 @@ insmod $module_path/abov_sar_mmi_overlay.ko
 
 cd $firmware_path
 touch_product_string=$(ls $touch_class_path)
-insmod $module_path/focaltech_0flash_mmi.ko
+insmod $module_path/bq2597x_mmi.ko
 firmware_file="focaltech-txd-ft8756-06-0000-odessa.bin"
 
 
