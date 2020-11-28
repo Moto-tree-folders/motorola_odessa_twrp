@@ -17,6 +17,7 @@
 # Release name
 PRODUCT_RELEASE_NAME := odessa
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
+PRODUCT_PACKAGES += fastbootd
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_minimal.mk)
 
 # Inherit from our custom product configuration
