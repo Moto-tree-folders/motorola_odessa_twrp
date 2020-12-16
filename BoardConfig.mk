@@ -106,7 +106,7 @@ BOARD_SUPER_PARTITION_GROUPS := qti_dynamic_partitions
 BOARD_QTI_DYNAMIC_PARTITIONS_SIZE := 4865392640
 BOARD_QTI_DYNAMIC_PARTITIONS_PARTITION_LIST := \
     system \
-    product
+    product \
 
 TARGET_NO_KERNEL := false
 TARGET_NO_RECOVERY := false
@@ -132,6 +132,7 @@ TARGET_USES_MKE2FS := true
 AB_OTA_PARTITIONS += \
     boot \
     system \
+    product \
     vendor \
     vbmeta \
     dtbo
