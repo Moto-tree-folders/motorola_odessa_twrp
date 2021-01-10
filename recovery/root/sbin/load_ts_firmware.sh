@@ -59,7 +59,7 @@ insmod $module_path/abov_sar_mmi_overlay.ko
 
 cd $firmware_path
 touch_product_string=$(ls $touch_class_path)
-insmod $module_path/bq2597x_mmi.ko
+insmod $module_path/focaltech_0flash_mmi.ko
 firmware_file="focaltech-txd-ft8756-06-0000-odessa.bin"
 
 
@@ -71,4 +71,3 @@ sleep 5
 echo 1 > $touch_path/reset
 
 return 0
-
