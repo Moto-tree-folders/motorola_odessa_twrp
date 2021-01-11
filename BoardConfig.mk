@@ -120,7 +120,7 @@ TARGET_NO_KERNEL := false
 TARGET_NO_RECOVERY := false
 
 # Partitions (listed in the file) to be wiped under recovery.
-# TARGET_RECOVERY_FSTAB := $(LOCAL_PATH)/recovery.fstab
+TARGET_RECOVERY_WIPE := $(LOCAL_PATH)/recovery.wipe
 
 # Workaround for error copying vendor files to recovery ramdisk
 BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := ext4
@@ -159,7 +159,6 @@ TW_INCLUDE_CRYPTO_FBE := true
 # TWRP specific build flags
 RECOVERY_SDCARD_ON_DATA := true
 TARGET_RECOVERY_QCOM_RTC_FIX := true
-RECOVERY_ON_SDCARD=y
 TW_BRIGHTNESS_PATH := "/sys/class/backlight/panel0-backlight/brightness"
 TW_EXCLUDE_SUPERSU := true
 TW_EXTRA_LANGUAGES := true
@@ -176,11 +175,9 @@ TW_USE_TOOLBOX := true
 BOARD_PROVIDES_GPTUTILS := true
 BOARD_SUPPRESS_SECURE_ERASE := true
 TW_EXCLUDE_TWRPAPP := true
-TW_SUPPORT_INPUT_1_2_HAPTICS := true
 TWRP_INCLUDE_LOGCAT := true
 TARGET_USES_LOGD := true
+TW_NO_USB_STORAGE := true
 PLATFORM_VERSION := 16.1.0
 
 ALLOW_MISSING_DEPENDENCIES := true
-TARGET_SUPPORTS_64_BIT_APPS := true
-TARGET_USES_64_BIT_BINDER := true
