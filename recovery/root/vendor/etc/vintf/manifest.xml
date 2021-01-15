@@ -4,10 +4,9 @@
         manifest_common.xml
         manifest_ab.xml
         c2_manifest.xml
+        manifest.xml
+        manifest.xml
         manifest_IMoto_Fingerprint.xml
-        manifest.xml
-        manifest.xml
-        manifest.xml
         imgtuner_manifest.xml
         manifest-qva.xml
 -->
@@ -396,6 +395,10 @@
         </interface>
         <fqname>@1.2::ISupplicant/default</fqname>
     </hal>
+    <hal format="hidl" override="true">
+        <name>com.fingerprints.extension</name>
+        <transport>hwbinder</transport>
+    </hal>
     <hal format="hidl">
         <name>com.motorola.hardware.biometric.fingerprint</name>
         <transport>hwbinder</transport>
@@ -461,16 +464,6 @@
         <fqname>@1.0::IMotHealth/default</fqname>
     </hal>
     <hal format="hidl">
-        <name>motorola.hardware.health</name>
-        <transport>hwbinder</transport>
-        <version>2.0</version>
-        <interface>
-            <name>IMotHealth</name>
-            <instance>default</instance>
-        </interface>
-        <fqname>@2.0::IMotHealth/default</fqname>
-    </hal>
-    <hal format="hidl">
         <name>motorola.hardware.light</name>
         <transport>hwbinder</transport>
         <version>1.0</version>
@@ -479,6 +472,16 @@
             <instance>default</instance>
         </interface>
         <fqname>@1.0::IMotLight/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>motorola.hardware.popup</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IMotoPopup</name>
+            <instance>default</instance>
+        </interface>
+        <fqname>@1.0::IMotoPopup/default</fqname>
     </hal>
     <hal format="hidl">
         <name>motorola.hardware.vibrator</name>
@@ -736,14 +739,14 @@
     <hal format="hidl">
         <name>vendor.qti.hardware.radio.ims</name>
         <transport>hwbinder</transport>
-        <version>1.6</version>
+        <version>1.5</version>
         <interface>
             <name>IImsRadio</name>
             <instance>imsradio0</instance>
             <instance>imsradio1</instance>
         </interface>
-        <fqname>@1.6::IImsRadio/imsradio0</fqname>
-        <fqname>@1.6::IImsRadio/imsradio1</fqname>
+        <fqname>@1.5::IImsRadio/imsradio0</fqname>
+        <fqname>@1.5::IImsRadio/imsradio1</fqname>
     </hal>
     <hal format="hidl">
         <name>vendor.qti.hardware.radio.internal.deviceinfo</name>
