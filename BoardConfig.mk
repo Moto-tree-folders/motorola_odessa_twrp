@@ -117,8 +117,7 @@ BOARD_QTI_DYNAMIC_PARTITIONS_SIZE := 4865392640
 BOARD_QTI_DYNAMIC_PARTITIONS_PARTITION_LIST := \
     system \
     product \
-    vendor \
-    odm
+    vendor
 
 TARGET_NO_KERNEL := false
 TARGET_NO_RECOVERY := false
