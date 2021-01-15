@@ -155,6 +155,56 @@ BOARD_HAS_NO_SELECT_BUTTON := true
 # Use mke2fs to create ext4 images
 TARGET_USES_MKE2FS := true
 
+# A/B device flags
+TARGET_NO_KERNEL := false
+TARGET_NO_RECOVERY := false
+BOARD_USES_RECOVERY_AS_BOOT := false
+BOARD_BUILD_SYSTEM_ROOT_IMAGE := false
+
+# TWRP specific build flags
+RECOVERY_SDCARD_ON_DATA := true
+TARGET_RECOVERY_QCOM_RTC_FIX := true
+TW_BRIGHTNESS_PATH := "/sys/class/backlight/panel0-backlight/brightness"
+TW_EXCLUDE_DEFAULT_USB_INIT := true
+TW_INCLUDE_NTFS_3G := true
+TW_INCLUDE_RESETPROP := true
+TW_INPUT_BLACKLIST := "hbtp_vm"
+TW_MAX_BRIGHTNESS := 255
+TW_DEFAULT_BRIGHTNESS := 120
+TW_THEME := portrait_hdpi
+TARGET_USE_CUSTOM_LUN_FILE_PATH := /config/usb_gadget/g1/functions/mass_storage.0/lun.%d/file
+TW_NO_SCREEN_BLANK := true
+TW_NO_USB_STORAGE := true
+
+# Additional binaries & libraries needed for recovery
+TARGET_RECOVERY_DEVICE_MODULES += \
+    android.hidl.base@1.0 \
+    ashmemd \
+    ashmemd_aidl_interface-cpp \
+    libashmemd_client \
+    libcap \
+    libicui18n \
+    libicuuc \
+    libion \
+    libpcrecpp \
+    libprocinfo \
+    libxml2
+
+TW_RECOVERY_ADDITIONAL_RELINK_BINARY_FILES += \
+    $(TARGET_OUT_EXECUTABLES)/ashmemd
+
+TW_RECOVERY_ADDITIONAL_RELINK_LIBRARY_FILES += \
+    $(TARGET_OUT_SHARED_LIBRARIES)/android.hidl.base@1.0.so \
+    $(TARGET_OUT_SHARED_LIBRARIES)/ashmemd_aidl_interface-cpp.so \
+    $(TARGET_OUT_SHARED_LIBRARIES)/libashmemd_client.so \
+    $(TARGET_OUT_SHARED_LIBRARIES)/libcap.so \
+    $(TARGET_OUT_SHARED_LIBRARIES)/libicui18n.so \
+    $(TARGET_OUT_SHARED_LIBRARIES)/libicuuc.so \
+    $(TARGET_OUT_SHARED_LIBRARIES)/libion.so \
+    $(TARGET_OUT_SHARED_LIBRARIES)/libpcrecpp.so \
+    $(TARGET_OUT_SHARED_LIBRARIES)/libprocinfo.so \
+    $(TARGET_OUT_SHARED_LIBRARIES)/libxml2.so
+
 # Encryption
 PLATFORM_VERSION := 16.1.0
 PLATFORM_SECURITY_PATCH := 2099-12-31
