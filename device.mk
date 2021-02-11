@@ -1,5 +1,5 @@
 
-LOCAL_PATH := device/motorola/odessa
+LOCAL_PATH := device/motorola/sofiar
 
 # define hardware platform
 PRODUCT_PLATFORM := trinket
@@ -28,6 +28,7 @@ PRODUCT_PACKAGES += \
     android.hardware.boot@1.0-impl-recovery \
     bootctrl.trinket \
     bootctrl.trinket.recovery \
+
 
 PRODUCT_HOST_PACKAGES += \
     libandroidicu

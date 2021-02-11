@@ -18,9 +18,12 @@ PRODUCT_MODEL := sofiar
 PRODUCT_MANUFACTURER := Motorola
 
 
-PRODUCT_SYSTEM_PROPERTY_BLACKLIST += \
-    ro.build.product \
-    ro.display.series
+#PRODUCT_SYSTEM_PROPERTY_BLACKLIST += \
+
+PRODUCT_BUILD_PROP_OVERRIDES += \
+    PRODUCT_NAME="motorola G8 Power" \
+    BUILD_PRODUCT="motorola G8 Power" \
+    TARGET_DEVICE="motorola G8 Power"
 
 # HACK: Set vendor patch level
 PRODUCT_PROPERTY_OVERRIDES += \
