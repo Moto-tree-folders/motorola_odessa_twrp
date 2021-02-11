@@ -2,7 +2,7 @@
 LOCAL_PATH := device/motorola/odessa
 
 # define hardware platform
-PRODUCT_PLATFORM := sm6150
+PRODUCT_PLATFORM := trinket
 
 #TEST
 # A/B support
@@ -26,8 +26,8 @@ PRODUCT_PACKAGES += \
     android.hardware.boot@1.0-impl-wrapper.recovery \
     android.hardware.boot@1.0-impl-wrapper \
     android.hardware.boot@1.0-impl-recovery \
-    bootctrl.sm6150 \
-    bootctrl.sm6150.recovery \
+    bootctrl.trinket \
+    bootctrl.trinket.recovery \
 
 PRODUCT_HOST_PACKAGES += \
     libandroidicu
