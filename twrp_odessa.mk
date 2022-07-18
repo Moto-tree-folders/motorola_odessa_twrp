@@ -18,17 +18,20 @@
 PRODUCT_RELEASE_NAME := odessa
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
 PRODUCT_PACKAGES += fastbootd
+# Custom vendor used in build tree (automatically taken from prefix of this filename)
+CUSTOM_VENDOR := $(lastword $(subst /, ,$(firstword $(subst _, ,$(firstword $(MAKEFILE_LIST))))))
+
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_minimal.mk)
 
 # Inherit from our custom product configuration
-$(call inherit-product, vendor/omni/config/common.mk)
+$(call inherit-product, vendor/$(CUSTOM_VENDOR)/config/common.mk)
 
 # Inherit from hardware-specific part of the product configuration
 $(call inherit-product, device/motorola/odessa/device.mk)
 
 ## Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := odessa
-PRODUCT_NAME := omni_odessa
+PRODUCT_NAME := $(CUSTOM_VENDOR)_$(PRODUCT_DEVICE)
 PRODUCT_BRAND := Motorola
 PRODUCT_MODEL := odessa
 PRODUCT_MANUFACTURER := Motorola

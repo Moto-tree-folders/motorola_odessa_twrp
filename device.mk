@@ -37,3 +37,6 @@ PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH)
 
 #PRODUCT_COPY_FILES += $(call find-copy-subdir-files,*,$(LOCAL_PATH)/recovery/root,recovery/root)
+
+# Custom ROM asserts
+TARGET_OTA_ASSERT_DEVICE := odessa,Odessa

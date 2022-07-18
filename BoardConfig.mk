@@ -49,6 +49,10 @@ TARGET_USES_UEFI := true
 
 BUILD_BROKEN_DUP_RULES := true
 
+
+# a12 source
+TARGET_SUPPORTS_64_BIT_APPS := true
+
 # Kernel
 BOARD_KERNEL_CMDLINE := console=ttyMSM0,115200,n8 androidboot.hardware=qcom androidboot.console=ttyMSM0 androidboot.memcg=1 lpm_levels.sleep_disabled=1 video=vfb:640x400,bpp=32,memsize=3072000 msm_rtb.filter=0x237 service_locator.enable=1 swiotlb=1 earlycon=msm_geni_serial,0x4a90000 loop.max_part=7 cgroup.memory=nokmem,nosocket androidboot.usbcontroller=4e00000.dwc3 printk.devkmsg=on  firmware_class.path=/vendor/firmware_mnt/image
 BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
@@ -68,11 +72,12 @@ TARGET_KERNEL_VERSION := 4.14
 BUILD_WITH_KERNEL_SOURCE := true
 
 ifeq ($(BUILD_WITH_KERNEL_SOURCE), true)
-TARGET_KERNEL_SOURCE := kernel/motorola/sm6150
+TARGET_KERNEL_SOURCE := kernel/motorola/odessa
 TARGET_KERNEL_CONFIG := twrp_odessa_defconfig
 TARGET_KERNEL_CLANG_COMPILE := true
 BOARD_KERNEL_SEPARATED_DTBO := true
-TARGET_KERNEL_CLANG_VERSION := r328903
+# clang 12.7 r416183b1
+TARGET_KERNEL_CLANG_VERSION := r416183b1
 else
 TARGET_PREBUILT_KERNEL := device/motorola/odessa/prebuilt/Image.gz-dtb
 BOARD_PREBUILT_DTBOIMAGE := $(DEVICE_PATH)/prebuilt/dtbo.img
@@ -88,7 +93,6 @@ QCOM_BOARD_PLATFORMS += sm6150
 
 # AVB
 BOARD_AVB_ENABLE := true
-# BOARD_BUILD_SYSTEM_ROOT_IMAGE := true
 
 BOARD_AVB_ROLLBACK_INDEX := $(PLATFORM_SECURITY_PATCH_TIMESTAMP)
 
@@ -153,8 +157,8 @@ TARGET_ENFORCE_AB_OTA_PARTITION_LIST := true
 # Encryption
 PLATFORM_SECURITY_PATCH := 2099-12-31
 VENDOR_SECURITY_PATCH := 2099-12-31
-TW_INCLUDE_CRYPTO := true
-TW_INCLUDE_CRYPTO_FBE := true
+#TW_INCLUDE_CRYPTO := true
+#TW_INCLUDE_CRYPTO_FBE := true
 
 # TWRP specific build flags
 RECOVERY_SDCARD_ON_DATA := true
@@ -177,7 +181,7 @@ BOARD_SUPPRESS_SECURE_ERASE := true
 TW_EXCLUDE_TWRPAPP := true
 TWRP_INCLUDE_LOGCAT := true
 TARGET_USES_LOGD := true
-TW_NO_USB_STORAGE := true
+#TW_NO_USB_STORAGE := true
 PLATFORM_VERSION := 16.1.0
 
 ALLOW_MISSING_DEPENDENCIES := true
