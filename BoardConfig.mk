@@ -225,14 +225,12 @@ BOARD_USES_METADATA_PARTITION := true
 RECOVERY_SDCARD_ON_DATA := true
 TARGET_RECOVERY_QCOM_RTC_FIX := true
 TW_BRIGHTNESS_PATH := "/sys/class/backlight/panel0-backlight/brightness"
-TW_EXCLUDE_SUPERSU := true
 
 # Extras
 TARGET_SYSTEM_PROP += $(PLATFORM_PATH)/system.prop
 
 BOARD_SUPPRESS_SECURE_ERASE := true
 TW_USE_TOOLBOX := true
-TW_EXCLUDE_TWRPAPP := true
 TW_HAS_EDL_MODE := true
 
 # Asian region languages
@@ -241,7 +239,6 @@ TW_EXCLUDE_DEFAULT_USB_INIT := true
 TW_INCLUDE_RESETPROP := true
 TW_DEFAULT_BRIGHTNESS := 120
 TW_INCLUDE_NTFS_3G := true
-TW_INPUT_BLACKLIST := "hbtp_vm"
 TW_MAX_BRIGHTNESS := 255
 TW_THEME := portrait_hdpi
 TARGET_RECOVERY_DEVICE_MODULES += android.hardware.boot@1.0
